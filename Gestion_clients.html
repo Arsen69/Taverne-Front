@@ -13,10 +13,13 @@
   flex-direction:column;
 }
 
-#FormGr{
+.FormGr{
   margin: 20px;
 }
 
+.hide{
+  display:none;
+}
 
 </style>
 
@@ -31,96 +34,132 @@
 
   </head>
   <body>
-
-<h1>Liste des trajets</h1>
-<input class="btn btn-success" type="submit" name="" value="Ajouter" onclick="masquer_div('DisplayAjout');">
-
-<div class="container-fluid">
+    <div class="container-fluid">
 
 
-<table class="table table-striped table-hover">
-  <thead>
-        <tr>
-          <th>id</th>
-          <th>Login</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Mail</th>
-          <th>Points sur la carte</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-<tbody>
-  <tr>
-    <td>1</td>
-    <td>toto</td>
-    <td>Bob</td>
-    <td>Dylan</td>
-    <td>bobdylan@mail.com</td>
-    <td>0</td>
-    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
-    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>toto</td>
-    <td>Bob</td>
-    <td>Dylan</td>
-    <td>bobdylan@mail.com</td>
-    <td>0</td>
-    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
-    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>toto</td>
-    <td>Bob</td>
-    <td>Dylan</td>
-    <td>bobdylan@mail.com</td>
-    <td>0</td>
-    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
-    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
-  </tr>
+      <h1>Liste des clients</h1>
+      <input class="btn btn-success" type="submit" name="" value="Ajouter" onclick="toggle_ajout();">
 
-</tbody>
-</table>
-</div>
+      <div class="container-fluid">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Login</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Mail</th>
+              <th>Points sur la carte</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>toto</td>
+              <td>Bob</td>
+              <td>Dylan</td>
+              <td>bobdylan@mail.com</td>
+              <td>0</td>
+              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
+              <input class="btn btn-danger" type="submit" name="" value="Supprimer" >
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>toto</td>
+              <td>Bob</td>
+              <td>Dylan</td>
+              <td>bobdylan@mail.com</td>
+              <td>0</td>
+              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
+              <input class="btn btn-danger" type="submit" name="" value="Supprimer">
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>toto</td>
+              <td>Bob</td>
+              <td>Dylan</td>
+              <td>bobdylan@mail.com</td>
+              <td>0</td>
+              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
+              <input class="btn btn-danger" type="submit" name="" value="Supprimer">
+            </td>
+            </tr>
 
-<!--<th>id</th>
-<th>Planète de départ</th>
-<th>Planète d'arrivée</th>
-<th>Date de départ</th>
-<th>Heure de départ</th>
-<th>Nom du vaisseau</th>
-<th>Actions</th>*/-->
-<div id="DisplayAjout" class="container-fluid addForm" style="display:none;">
-<h3>Ajouter nouveau Trajet</h3>
-<div id="BlocAjout" class="shadow">
+          </tbody>
+        </table>
+      </div>
 
-       <form id="FormGr" action="Gestion_clients.html" method="get">
-         <div class="form-group">
-           <label for="add_Login">Login</label> <br><input class="form-control" required id="add_Login" name="Login" type="text" placeholder="Login"><br>
-           <label for="add_Nom">Nom</label> <br> <input class="form-control" required id="add_Nom" name="Nom" type="text" placeholder="Nom"><br>
-           <label for="add_prenom">Prénom</label> <br><input class="form-control" id="add_prenom" name="Prenom" type="text" placeholder="Prénom"><br>
-           <label for="add_mail">Mail</label><br> <input class="form-control" id="add_mail" name="Mail" type="mail" placeholder="exemple@email.com"><br>
-           <label for="add_points">Points sur la carte</label><br> <input class="form-control" id="add_points" name="PointsCarte" type="number" placeholder="Nombre de points sur la carte"><br>
-           <br>
-           <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
+      <!--<th>id</th>
+      <th>Planète de départ</th>
+      <th>Planète d'arrivée</th>
+      <th>Date de départ</th>
+      <th>Heure de départ</th>
+      <th>Nom du vaisseau</th>
+      <th>Actions</th>*/-->
+      <div id="DisplayAjout" class="container-fluid addForm hide">
+      <h3>Enregistrer nouveau Client</h3>
+      <div id="BlocAjout" class="shadow">
+
+             <form class="FormGr" action="Gestion_clients.html" method="get">
+               <div class="form-group">
+                 <label for="add_Login">Login</label> <br><input class="form-control" required id="add_Login" name="Login" type="text" placeholder="Login"><br>
+                 <label for="add_Nom">Nom</label> <br> <input class="form-control" required id="add_Nom" name="Nom" type="text" placeholder="Nom"><br>
+                 <label for="add_prenom">Prénom</label> <br><input class="form-control" id="add_prenom" name="Prenom" type="text" placeholder="Prénom"><br>
+                 <label for="add_mail">Mail</label><br> <input class="form-control" id="add_mail" name="Mail" type="mail" placeholder="exemple@email.com"><br>
+                 <label for="add_points">Points sur la carte</label><br> <input class="form-control" id="add_points" name="PointsCarte" type="number" placeholder="Nombre de points sur la carte"><br>
+                 <br>
+                 <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
+               </div>
+             </form>
          </div>
-       </form>
-   </div>
-</div>
+      </div>
+
+      <div id="DisplayModif" class="container-fluid modifForm">
+      <h3>Modifier Client</h3>
+      <div id="BlocModif" class="shadow">
+
+             <form class="FormGr" action="Gestion_clients.html" method="get">
+               <div class="form-group">
+                 <label for="modif_Login">Login</label> <br><input class="form-control" required id="modif_Login" name="Login" type="text" placeholder="Login"><br>
+                 <label for="modif_Nom">Nom</label> <br> <input class="form-control" required id="modif_Nom" name="Nom" type="text" placeholder="Nom"><br>
+                 <label for="modif_prenom">Prénom</label> <br><input class="form-control" id="modif_prenom" name="Prenom" type="text" placeholder="Prénom"><br>
+                 <label for="modif_mail">Mail</label><br> <input class="form-control" id="modif_mail" name="Mail" type="mail" placeholder="exemple@email.com"><br>
+                 <label for="modif_points">Points sur la carte</label><br> <input class="form-control" id="modif_points" name="PointsCarte" type="number" placeholder="Nombre de points sur la carte"><br>
+                 <br>
+                 <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
+               </div>
+             </form>
+         </div>
+      </div>
+
+
+    </div>
   </body>
 </html>
 
 <script type="text/javascript">
-  function masquer_div(id)
+  function toggle_ajout()
 {
-  if (document.getElementById(id).style.display == 'none') {
-       document.getElementById(id).style.display = 'block';
+  if (document.getElementById('DisplayAjout').classList.contains("hide")) {
+       document.getElementById('DisplayAjout').classList.remove("hide");
+       document.getElementById('DisplayModif').classList.add("hide");
   }
   else {
-       document.getElementById(id).style.display = 'none';
+       document.getElementById('DisplayAjout').classList.add("hide");
+  }
+}
+
+function toggle_modif()
+{
+  if (document.getElementById('DisplayModif').classList.contains("hide")) {
+       document.getElementById('DisplayModif').classList.remove("hide");
+       document.getElementById('DisplayAjout').classList.add("hide");
+  }
+  else {
+       document.getElementById('DisplayModif').classList.add("hide");
   }
 }
 </script>
