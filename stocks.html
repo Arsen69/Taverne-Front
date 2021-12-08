@@ -27,7 +27,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>GestionClients</title>
+    <title>Stocks</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -37,7 +37,7 @@
     <div class="container-fluid">
 
 
-      <h1>Liste des clients</h1>
+      <h1>Liste des stocks</h1>
       <input class="btn btn-success" type="submit" name="" value="Ajouter" onclick="toggle_ajout();">
 
       <div class="container-fluid p-3">
@@ -45,49 +45,43 @@
           <thead>
             <tr>
               <th>id</th>
-              <th>Login</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Points sur la carte</th>
+              <th>Type Produit</th>
+              <th>Volume</th>
+              <th>Seuil Limite</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>toto</td>
-              <td>Bob</td>
-              <td>Dylan</td>
-              <td>bobdylan@mail.com</td>
-              <td>0</td>
-              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
+              <td>Coca</td>
+              <td>49.67</td>
+              <td class="seuil__modif">null</td>
+              <td><a href="approvisionner_stock.html?id=1" class="btn btn-primary" role="button">Approvisionner</a>
+                <input class="btn btn-warning" type="submit" name="" value="Modifier Limite" onclick="toggle_modif()">
               <input class="btn btn-danger" type="submit" name="" value="Supprimer" >
               </td>
             </tr>
             <tr>
               <td>2</td>
-              <td>toto2</td>
-              <td>Bob</td>
-              <td>Dylan</td>
-              <td>bob-dylan@mail.com</td>
-              <td>50</td>
-              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
-              <input class="btn btn-danger" type="submit" name="" value="Supprimer">
+              <td>Bière</td>
+              <td>24.75</td>
+              <td class="seuil__modif">null</td>
+              <td><a href="approvisionner_stock.html?id=1" class="btn btn-primary" role="button">Approvisionner</a>
+                <input class="btn btn-warning" type="submit" name="" value="Modifier Limite" onclick="toggle_modif()">
+              <input class="btn btn-danger" type="submit" name="" value="Supprimer" >
               </td>
             </tr>
             <tr>
               <td>3</td>
-              <td>toto3</td>
-              <td>Bob</td>
-              <td>Dylan</td>
-              <td>bob.dylan@mail.com</td>
-              <td>25</td>
-              <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
-              <input class="btn btn-danger" type="submit" name="" value="Supprimer">
-            </td>
+              <td>Vodka</td>
+              <td>0</td>
+              <td class="seuil__modif">null</td>
+              <td><a href="approvisionner_stock.html?id=1" class="btn btn-primary" role="button">Approvisionner</a>
+                <input class="btn btn-warning" type="submit" name="" value="Modifier Limite" onclick="toggle_modif()">
+              <input class="btn btn-danger" type="submit" name="" value="Supprimer" >
+              </td>
             </tr>
-
           </tbody>
         </table>
       </div>
@@ -100,17 +94,13 @@
       <th>Nom du vaisseau</th>
       <th>Actions</th>*/-->
       <div id="DisplayAjout" class="container-fluid Form hide">
-      <h3>Enregistrer nouveau Client</h3>
+      <h3>Enregistrer nouveau Stock</h3>
       <div id="BlocAjout" class="shadow">
 
-             <form class="FormGr" action="Gestion_clients.html" method="get">
+             <form class="FormGr" action="stocks.html" method="get">
                <div class="form-group">
-                 <label for="add_Login">Login</label> <br><input class="form-control" required id="add_Login" name="Login" type="text" placeholder="Login"><br>
-                 <label for="add_Nom">Nom</label> <br> <input class="form-control" required id="add_Nom" name="Nom" type="text" placeholder="Nom"><br>
-                 <label for="add_prenom">Prénom</label> <br><input class="form-control" id="add_prenom" name="Prenom" type="text" placeholder="Prénom"><br>
-                 <label for="add_mail">Mail</label><br> <input class="form-control" id="add_mail" name="Mail" type="mail" placeholder="exemple@email.com"><br>
-                 <label for="add_points">Points sur la carte</label><br> <input class="form-control" id="add_points" name="PointsCarte" type="number" placeholder="Nombre de points sur la carte"><br>
-                 <br>
+                 <label for="add_typeProduit">Type Produit</label> <br><input class="form-control" required id="add_typeProduit" name="TypeProduit" type="text" placeholder="Type de Produit"><br>
+                 <label for="add_Seuil">Seuil d'alerte</label> <br> <input class="form-control" id="add_Seuil" name="Seuil" type="number" placeholder="Seuil d'alerte"><br>
                  <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
                </div>
              </form>
@@ -118,7 +108,7 @@
       </div>
 
       <div id="DisplayModif" class="container-fluid Form hide">
-      <h3>Modifier Client</h3>
+      <h3>Modifier Limite</h3>
       <div id="BlocModif" class="shadow">
 
              <form class="FormGr" action="Gestion_clients.html" method="get">
@@ -162,4 +152,8 @@ function toggle_modif()
        document.getElementById('DisplayModif').classList.add("hide");
   }
 }
+
+seuil__modif.ondblclick=this.innerHTML("<input type="text" name="modifSeuil" value="">");
+
+
 </script>
