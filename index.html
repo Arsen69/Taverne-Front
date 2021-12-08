@@ -10,19 +10,29 @@
 
 <style media="screen">
 
-body{
-  background-color:#007185;
-}
+  body{
+    background-image: radial-gradient(circle at 50% -20.71%, #d1fff8 0, #befff6 10%, #a7fff4 20%, #8dfff3 30%, #6cfbf2 40%, #3cf2f2 50%, #00e8f3 60%, #00dff5 70%, #00d6f9 80%, #00cefd 90%, #00c6ff 100%);
+  }
 
-#contenu{
+  .col-lg-4{
+    height:150px;
+  }
 
-}
+  .Bienvenue{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:100%;
+    height: 300px;
+  }
 
-#pres_choix{
-  display:flex;
-  flex-direction:column;
-  align-items: center
-}
+  .Question{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    widht:100%
+    height:300px;
+  }
 
 </style>
 
@@ -30,18 +40,26 @@ body{
 
   <body>
 
-    <div id="pres_choix" class="container">
-      <img src="http://nantes.lesfleursdumaltlebar.fr/img/index-bienvenu.png" alt="bienvenue" width="250">
-      <img src="http://nantes.lesfleursdumaltlebar.fr/img/index-choix.png" alt="Phrase de bienvenue" width ="500">
 
-    </div>
 
     <div id="contenu" class="container-fluid">
 
-      <div class="row">
-        <h1>test</h1>
+      <div class="row Bienvenue">
+        <img src="http://nantes.lesfleursdumaltlebar.fr/img/index-bienvenu.png" alt="bienvenue" width="150">
+      </div>
+      <div class="row Question">
+        <img src="http://nantes.lesfleursdumaltlebar.fr/img/index-choix.png" alt="Phrase de bienvenue" width ="500">
       </div>
       <div class="row">
+        <div class="col-lg-4">
+          <h1>Bar 1</h1>
+        </div>
+        <div class="col-lg-4">
+          <h1>Bar 2</h1>
+        </div>
+        <div class="col-lg-4">
+          <h1>Bar 3</h1>
+        </div>
       </div>
     </div>
 
