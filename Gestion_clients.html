@@ -2,7 +2,7 @@
 
 <style>
 
-.addForm{
+.Form{
   display:flex;
   justify-content:center;
   flex-direction:column;
@@ -66,23 +66,23 @@
               </td>
             </tr>
             <tr>
-              <td>1</td>
-              <td>toto</td>
+              <td>2</td>
+              <td>toto2</td>
               <td>Bob</td>
               <td>Dylan</td>
-              <td>bobdylan@mail.com</td>
-              <td>0</td>
+              <td>bob-dylan@mail.com</td>
+              <td>50</td>
               <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
               <input class="btn btn-danger" type="submit" name="" value="Supprimer">
               </td>
             </tr>
             <tr>
-              <td>1</td>
-              <td>toto</td>
+              <td>3</td>
+              <td>toto3</td>
               <td>Bob</td>
               <td>Dylan</td>
-              <td>bobdylan@mail.com</td>
-              <td>0</td>
+              <td>bob.dylan@mail.com</td>
+              <td>25</td>
               <td><input class="btn btn-warning" type="submit" name="" value="Modifier" onclick="toggle_modif()">
               <input class="btn btn-danger" type="submit" name="" value="Supprimer">
             </td>
@@ -99,7 +99,7 @@
       <th>Heure de départ</th>
       <th>Nom du vaisseau</th>
       <th>Actions</th>*/-->
-      <div id="DisplayAjout" class="container-fluid addForm hide">
+      <div id="DisplayAjout" class="container-fluid Form hide">
       <h3>Enregistrer nouveau Client</h3>
       <div id="BlocAjout" class="shadow">
 
@@ -117,7 +117,7 @@
          </div>
       </div>
 
-      <div id="DisplayModif" class="container-fluid modifForm">
+      <div id="DisplayModif" class="container-fluid Form hide">
       <h3>Modifier Client</h3>
       <div id="BlocModif" class="shadow">
 
