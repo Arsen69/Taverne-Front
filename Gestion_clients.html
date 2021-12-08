@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<style>
+
+.addForm{
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+#BlocAjout{
+  display:flex;
+  flex-direction:column;
+}
+
+#FormGr{
+  margin: 20px;
+}
+
+
+</style>
+
+
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GestionClients</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+<h1>Liste des trajets</h1>
+<input class="btn btn-success" type="submit" name="" value="Ajouter" onclick="masquer_div('DisplayAjout');">
+
+<div class="container-fluid">
+
+
+<table class="table table-striped table-hover">
+  <thead>
+        <tr>
+          <th>id</th>
+          <th>Login</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Mail</th>
+          <th>Points sur la carte</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>toto</td>
+    <td>Bob</td>
+    <td>Dylan</td>
+    <td>bobdylan@mail.com</td>
+    <td>0</td>
+    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
+    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>toto</td>
+    <td>Bob</td>
+    <td>Dylan</td>
+    <td>bobdylan@mail.com</td>
+    <td>0</td>
+    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
+    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>toto</td>
+    <td>Bob</td>
+    <td>Dylan</td>
+    <td>bobdylan@mail.com</td>
+    <td>0</td>
+    <td><input class="btn btn-warning" type="submit" name="" value="Modifier">
+    <input class="btn btn-danger" type="submit" name="" value="Supprimer"></td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+<!--<th>id</th>
+<th>Planète de départ</th>
+<th>Planète d'arrivée</th>
+<th>Date de départ</th>
+<th>Heure de départ</th>
+<th>Nom du vaisseau</th>
+<th>Actions</th>*/-->
+<div id="DisplayAjout" class="container-fluid addForm" style="display:none;">
+<h3>Ajouter nouveau Trajet</h3>
+<div id="BlocAjout" class="shadow">
+
+       <form id="FormGr" action="Gestion_clients.html" method="get">
+         <div class="form-group">
+           <label for="add_Login">Login</label> <br><input class="form-control" required id="add_Login" name="Login" type="text" placeholder="Login"><br>
+           <label for="add_Nom">Nom</label> <br> <input class="form-control" required id="add_Nom" name="Nom" type="text" placeholder="Nom"><br>
+           <label for="add_prenom">Prénom</label> <br><input class="form-control" id="add_prenom" name="Prenom" type="text" placeholder="Prénom"><br>
+           <label for="add_mail">Mail</label><br> <input class="form-control" id="add_mail" name="Mail" type="mail" placeholder="exemple@email.com"><br>
+           <label for="add_points">Points sur la carte</label><br> <input class="form-control" id="add_points" name="PointsCarte" type="number" placeholder="Nombre de points sur la carte"><br>
+           <br>
+           <input class ="btn btn-success form-control" type="submit" name="ajouter" value="Ajouter">
+         </div>
+       </form>
+   </div>
+</div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  function masquer_div(id)
+{
+  if (document.getElementById(id).style.display == 'none') {
+       document.getElementById(id).style.display = 'block';
+  }
+  else {
+       document.getElementById(id).style.display = 'none';
+  }
+}
+</script>
