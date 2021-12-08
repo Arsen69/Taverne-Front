@@ -11,11 +11,23 @@
 <style media="screen">
 
   body{
-    background-image: radial-gradient(circle at 50% -20.71%, #d1fff8 0, #befff6 10%, #a7fff4 20%, #8dfff3 30%, #6cfbf2 40%, #3cf2f2 50%, #00e8f3 60%, #00dff5 70%, #00d6f9 80%, #00cefd 90%, #00c6ff 100%);
+    background-image: radial-gradient(circle at 50% -20.71%, #e6f58f 0, #e9eb7f 10%, #ecdf6e 20%, #efd25d 30%, #f1c44d 40%, #f2b53c 50%, #f3a52d 60%, #f59522 70%, #f8851d 80%, #fa741e 90%, #fc6324 100%);
+  }
+
+  #contenu{
+    display: flex;
+    flex-direction: column;
   }
 
   .col-lg-4{
-    height:150px;
+    height:350px;
+  }
+
+  .shadow{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-image: radial-gradient(circle at 50% -20.71%, #de9c2c 0, #e5922a 8.33%, #ea852b 16.67%, #ee772d 25%, #f16731 33.33%, #f35436 41.67%, #f23c3c 50%, #f01843 58.33%, #ed004c 66.67%, #e90057 75%, #e30064 83.33%, #db0071 91.67%, #d10080 100%);
   }
 
   .Bienvenue{
@@ -30,7 +42,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    widht:100%
+    width:100%;
     height:300px;
   }
 
@@ -51,14 +63,24 @@
         <img src="http://nantes.lesfleursdumaltlebar.fr/img/index-choix.png" alt="Phrase de bienvenue" width ="500">
       </div>
       <div class="row">
-        <div class="col-lg-4">
-          <h1>Bar 1</h1>
+        <div class="col-lg-4 ">
+          <div class="container shadow p-3 rounded">
+            <h1>Bar 1</h1>
+            <img src="assets\img\bar1.jpg" alt="Bar 1" width ="300">
+          </div>
+
         </div>
         <div class="col-lg-4">
-          <h1>Bar 2</h1>
+          <div class="container shadow p-3 rounded">
+            <h1>Bar 2</h1>
+            <img src="assets\img\bar1.jpg" alt="Bar 1" width ="300">
+          </div>
         </div>
         <div class="col-lg-4">
-          <h1>Bar 3</h1>
+          <div class="container shadow p-3 rounded">
+            <h1>Bar 3</h1>
+            <img src="assets\img\bar1.jpg" alt="Bar 1" width ="300">
+          </div>
         </div>
       </div>
     </div>
