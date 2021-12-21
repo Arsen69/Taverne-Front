@@ -6,66 +6,335 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </head>
 
   <style media="screen">
 
+    :root {
+    --bckColor: #222327;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
     header{
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--bckColor);
+    }
+
+    .hLeft{
       display:flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bckColor);
     }
 
     .hRight{
-
-    }
-
-    .hRight__list{
       display:flex;
-      justify-content:space-between;
+      position: relative;
       align-items: center;
-      list-style-type: none;
+      justify-content: center;
+      background-color: var(--bckColor);
     }
 
+    .hMiddle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bckColor);
+    }
+
+    header h1 {
+      text-align: center;
+      color: silver;
+      flex-direction: column;
+    }
+
+    .searchBar {
+      display: flex;
+      align-items: center;
+      max-width: 500px;
+    }
+
+    .hRight ul {
+      display: flex;
+      justify-content: center;
+      width: 400px;
+      height: 70px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hRight ul li {
+      position: relative;
+      list-style: none;
+      width: 100px;
+      z-index: 1;
+    }
+
+    .hRight ul li a {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-weight: 600;
+    }
+
+    .hRight ul li a .icon {
+      position: relative;
+      display: block;
+      line-height: 70px;
+      font-size: 1.5em;
+      text-align: center;
+      transition: 0.5s;
+      color: orange;
+    }
+
+    .hRight ul li.active a .icon {
+      transform: translateY(35px);
+    }
+
+    .hRight ul li a .iconLabel {
+      position: absolute;
+      color: orange;
+      font-weight: 450;
+      font-size: 0.95em;
+      letter-spacing: 0.05em;
+      transition: 0.5s;
+      opacity: 0;
+      transform: translateY(-20px);
+      text-align: center;
+      overflow: visible;
+    }
+
+    .hRight ul li.active a .iconLabel {
+      opacity: 1;
+      transform: translateY(-12px);
+    }
+
+    .iconActive {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      background: darkblue;
+      bottom: -50%;
+      border-radius: 50%;
+      border: 6px solid var(--bckColor);
+      transition: 0.5s;
+    }
+
+    .iconActive::before {
+      content: "";
+      position: absolute;
+      top: 52%;
+      left: -22px;
+      background: transparent;
+      width: 20px;
+      height: 20px;
+      border-top-right-radius: 22px;
+      box-shadow: 1px -10px 0 0 var(--bckColor);
+    }
+
+    .iconActive::after {
+      content: "";
+      position: absolute;
+      top: 52%;
+      right: -22px;
+      background: transparent;
+      width: 20px;
+      height: 20px;
+      border-top-left-radius: 22px;
+      box-shadow: -1px -10px 0 0 var(--bckColor);
+    }
+
+    .hRight ul li:nth-child(1).active ~ .iconActive {
+      transform: translateX(-150px);
+    }
+
+    .hRight ul li:nth-child(2).active ~ .iconActive {
+      transform: translateX(-50px);
+    }
+
+    .hRight ul li:nth-child(3).active ~ .iconActive {
+      transform: translateX(50px);
+    }
+
+    .hRight ul li:nth-child(4).active ~ .iconActive {
+      transform: translateX(150px);
+    }
+
+    .rezo {
+      display: flex;
+      color: orange;
+      font-size: 1.5em;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .titleRezo {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 320px) {
+      /**/
+      header h1 {
+        font-size: 20px;
+      }
+      header {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (min-width: 576px) {
+      /*sm*/
+    }
+
+    @media screen and (min-width: 768px) {
+      /*md*/
+      header h1 {
+        font-size: calc(20px + 20 * ((100vw - 768px) / (1400 - 768)));
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      .hMiddle .rezo {
+        display: flex;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      /*lg*/
+      header {
+        flex-direction: row;
+      }
+      .hMiddle .rezo {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      /*xl*/
+    }
+
+    @media screen and (min-width: 1400px) {
+      /*xxl*/
+      header h1 {
+        font-size: 40px;
+      }
+    }
 
   </style>
 
-
   <body>
-
-    <header class="container-fluid">
-      <div class="container hLeft">
-        <div class="logo">
+    <div class="row no-gutters">
+    <header class="">
+      <div class="no-gutters hLeft d-none d-lg-flex col-lg-4 row">
+        <div class="logo col-lg-4">
           <h1>LOGO</h1>
         </div>
-
-
+        <div class="rezo col-lg-8">
+          <a href="#">
+            <span><ion-icon name="logo-facebook"></ion-icon></span>
+          </a>
+          <a href="#">
+            <span><ion-icon name="logo-twitter"></ion-icon></span>
+          </a>
+          <a href="#">
+            <span><ion-icon name="logo-instagram"></ion-icon></span>
+          </a>
+          <a href="#">
+            <span><ion-icon name="logo-youtube"></ion-icon></span>
+          </a>
+        </div>
       </div>
-
-      <div class="container hMiddle">
-
-        <h1>La Taverne</h1>
-
+      <div class="no-gutters hMiddle col-12 col-lg-4 row">
+        <div class="col-12 col-lg-6 titleRezo">
+          <div class="rezo col-4">
+            <a href="#">
+              <span><ion-icon name="logo-facebook"></ion-icon></span>
+            </a>
+            <a href="#">
+              <span><ion-icon name="logo-twitter"></ion-icon></span>
+            </a>
+          </div>
+          <h1 class="">La Taverne</h1>
+          <div class="rezo col-4">
+            <a href="#">
+              <span><ion-icon name="logo-instagram"></ion-icon></span>
+            </a>
+            <a href="#">
+              <span><ion-icon name="logo-youtube"></ion-icon></span>
+            </a>
+          </div>
+        </div>
+        <form class="searchBar col-12 col-lg-6">
+            <input type="search" class="form-control form-control-dark" placeholder="Rechercher..." aria-label="Search" >
+        </form>
       </div>
-
-      <div class="container hRight">
-        <ul class="hRight__list">
-          <li><a href="#" class="btn btn-success" role="button" value="Mon Compte" id="btnMonCompte">Mon Compte</a></li>
-          <li><a href="#" class="btn btn-success" role="button">Changer de Bar</a></li>
-          <li><a href="#" class="btn btn-success" role="button">Calendrier</a></li>
+      <div class="no-gutters hRight col-12 col-lg-4 row">
+        <ul>
+          <li class="navListe">
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              <span class="iconLabel">Compte</span>
+            </a>
+          </li>
+          <li class="navListe">
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="iconLabel">Bars</span>
+            </a>
+          </li>
+          <li class="navListe">
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </span>
+              <span class="iconLabel">Calendrier</span>
+            </a>
+          </li>
+          <li class="active navListe">
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="beer-outline"></ion-icon>
+              </span>
+              <span class="iconLabel">Carte</span>
+            </a>
+          </li>
+          <div class="iconActive"></div>
         </ul>
-
       </div>
-
     </header>
-
-
+    </div>
   </body>
-</html>
+  </html>
 
-<script type="text/javascript">
-  $('btnMonCompte').hover(
-       function(){ $(this).addClass('nav-active') },
-       function(){ $(this).removeClass('nav-active') }
-)
-</script>
+  <script>
+  const list = document.querySelectorAll(".navListe");
+  function activeLink () {
+    list.forEach((item) => {
+      item.classList.remove("active");
+    });
+    this.classList.add("active");
+  }
+  list.forEach((item, i) => {
+    item.addEventListener("click" , activeLink);
+  });
+
+  </script>
