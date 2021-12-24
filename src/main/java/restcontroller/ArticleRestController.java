@@ -69,7 +69,8 @@ public class ArticleRestController {
 		}
 		return articleService.create(article);
 	}
-
+	
+	@JsonView(JsonViews.Common.class)
 	@PutMapping("/{idArticle}")
 	public Article update(@Valid @RequestBody Article article, BindingResult br, @PathVariable("idArticle") Long idArticle) {
 		if (br.hasErrors()) {
