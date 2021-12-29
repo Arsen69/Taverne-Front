@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import exception.BoissonException;
 import model.JsonViews;
 import model.inventaire.Alcool;
+import model.inventaire.Bar;
 import model.inventaire.Boisson;
 import model.inventaire.Soft;
 import service.BoissonService;
@@ -40,6 +41,20 @@ public class BoissonRestController {
 		return boissonService.getAll();
 	}
 	
+//	@GetMapping("/{id}/bar")
+//	@JsonView(JsonViews.Common.class)
+//	public Boisson getByIdWithBar(@PathVariable Long id) {
+//		//List<Boisson> boissonParBar = boissonService.getAllByBar(bar);
+//		//Long id = bar.getIdBar();
+//		return boissonService.getByIdWithBar(id);
+//	}
+	
+	@GetMapping("/bar/{id}")
+	@JsonView(JsonViews.Common.class)
+	public List <Boisson> getAllByBar(@PathVariable("id") Long id) {
+		return boissonService.getAllByBar(id);
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Boisson getById(@PathVariable("id") Long id) {
@@ -48,9 +63,9 @@ public class BoissonRestController {
 	
 
 	//Post soft	
+	@PostMapping("/soft")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@JsonView(JsonViews.Common.class)
-	@PostMapping("/soft")
 	public Soft create(@Valid @RequestBody Soft soft, BindingResult br) {
 		if(br.hasErrors()) {
 			throw new BoissonException();
@@ -60,9 +75,9 @@ public class BoissonRestController {
 	}
 	
 	//Post alcool	
+		@PostMapping("/alcool")
 		@ResponseStatus(code = HttpStatus.CREATED)
 		@JsonView(JsonViews.Common.class)
-		@PostMapping("/alcool")
 		public Alcool create(@Valid @RequestBody Alcool alcool, BindingResult br) {
 			if(br.hasErrors()) {
 				throw new BoissonException();
@@ -74,7 +89,7 @@ public class BoissonRestController {
 
 	//Put Soft
 	@JsonView(JsonViews.Common.class)
-	@PutMapping("/soft")
+	@PutMapping("/soft/{id}")
 	public Soft replace(@Valid @RequestBody Soft soft, BindingResult br, @PathVariable("id") Long id) {
 		boissonService.update(soft);
 		return soft;
@@ -82,7 +97,7 @@ public class BoissonRestController {
 	
 	//Put Alcool
 		@JsonView(JsonViews.Common.class)
-		@PutMapping("/alcool")
+		@PutMapping("/alcool/{id}")
 		public Alcool replace(@Valid @RequestBody Alcool alcool, BindingResult br, @PathVariable("id") Long id) {
 			boissonService.update(alcool);
 			return alcool;
