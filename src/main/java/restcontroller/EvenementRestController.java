@@ -1,6 +1,7 @@
 package restcontroller;
 
 import java.lang.reflect.Field;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -23,13 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
+import exception.EvenementException;
 import model.JsonViews;
+import model.JsonViews.Evenement;
 import model.fonctionnalitees.Events;
 import service.EvenementService;
 
 @RestController
-@RequestMapping("/api/Evenement")
+@RequestMapping("/api/evenement")
 public class EvenementRestController {
 
 	@Autowired
@@ -40,12 +42,14 @@ public class EvenementRestController {
 	public List<Events> getAll(){
 		return evenementService.getAll();
 	}
+	/////////////////////////////////////////////
+//	@GetMapping("/{jour}")
+//	@JsonView(JsonViews.Evenement.class)
+//	public List<Events> getByJour(@PathVariable("jour") LocalDate jour) {
+//		return evenementService.getAll();
+//	}
+	/////////////////////////////////////////////////
 	
-	@GetMapping("/jour")
-	@JsonView(JsonViews.Evenement.class)
-	public List<Events> getByJour() {
-		return evenementService.getAll();
-	}
 	
 	@GetMapping("/Bar")
 	@JsonView(JsonViews.Evenement.class)
@@ -60,47 +64,43 @@ public class EvenementRestController {
 	}
 	
 	
-//	@ResponseStatus(code = HttpStatus.CREATED)
-//	@JsonView(JsonViews.Evenement.class)
-//	@PostMapping("")
-//	public Compagnon create(@Valid @RequestBody Compagnon compagnon, BindingResult br) {
-//		if (br.hasErrors()) {
-//			throw new CompagnonException();
-//		}
-//		compagnonService.creationOuModification(compagnon);
-//		return compagnon;
-//	}
-//
-//	
-//	
-//	
-//	
-//	
-//	@JsonView(JsonViews.Common.class)
-//	@PutMapping("/{id}")
-//	public Compagnon replace(@Valid @RequestBody Compagnon compagnon, BindingResult br, @PathVariable("id") Long id) {
-//		compagnonService.creationOuModification(compagnon);
-//		return compagnonService.getById(id);
-//	}
-//
-//	@JsonView(JsonViews.Common.class)
-//	@PatchMapping("/{id}")
-//	public Compagnon update(@RequestBody Map<String, Object> fields, @PathVariable("id") Long id) {
-//		Compagnon compagnon = compagnonService.getById(id);
-//		fields.forEach((k, v) -> {
-//			Field field = ReflectionUtils.findField(Compagnon.class, k);
-//			ReflectionUtils.makeAccessible(field);
-//			ReflectionUtils.setField(field, compagnon, v);
-//		});
-//		compagnonService.creationOuModification(compagnon);
-//		return compagnon;
-//	}
-//
-//	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-//	@DeleteMapping("/{id}")
-//	public void delete(@PathVariable("id") Long id) {
-//		compagnonService.suppression(id);
-//	}
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@JsonView(JsonViews.Evenement.class)
+	@PostMapping("")
+	public Events create(@Valid @RequestBody Events evenement, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new EvenementException();
+		}
+		evenementService.creationOuModification(evenement);
+		return evenement;
+	}
+
+	
+	@JsonView(JsonViews.Common.class)
+	@PutMapping("/{id}")
+	public Events replace(@Valid @RequestBody Events evenement, BindingResult br, @PathVariable("id") Long id) {
+		evenementService.creationOuModification(evenement);
+		return evenementService.getById(id);
+	}
+
+	@JsonView(JsonViews.Common.class)
+	@PatchMapping("/{id}")
+	public Events update(@RequestBody Map<String, Object> fields, @PathVariable("id") Long id) {
+		Events evenement = evenementService.getById(id);
+		fields.forEach((k, v) -> {
+			Field field = ReflectionUtils.findField(Events.class, k);
+			ReflectionUtils.makeAccessible(field);
+			ReflectionUtils.setField(field, evenement, v);
+		});
+		evenementService.creationOuModification(evenement);
+		return evenement;
+	}
+
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable("id") Long id) {
+		evenementService.suppression(id);
+	}
 	
 	
 	
