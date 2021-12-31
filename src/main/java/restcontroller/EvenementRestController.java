@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ import exception.EvenementException;
 import model.JsonViews;
 import model.JsonViews.Evenement;
 import model.fonctionnalitees.Events;
+import model.inventaire.Bar;
 import service.EvenementService;
 
 @RestController
@@ -42,26 +44,26 @@ public class EvenementRestController {
 	public List<Events> getAll(){
 		return evenementService.getAll();
 	}
+
+	@GetMapping("/Bar/{idBar}")
+	@JsonView(JsonViews.Evenement.class)
+	public List<Events> getByIdBar(@PathVariable Long idBar) {
+		return evenementService.getByIdBar(idBar);
+	}
+	
+	@GetMapping("/Employe/{id}")
+	@JsonView(JsonViews.Evenement.class)
+	public List<Events> getByIdEmploye(@PathVariable Long id) {
+		return evenementService.getByIdEmploye(id);
+	}
+	
 	/////////////////////////////////////////////
-//	@GetMapping("/{jour}")
-//	@JsonView(JsonViews.Evenement.class)
-//	public List<Events> getByJour(@PathVariable("jour") LocalDate jour) {
-//		return evenementService.getAll();
-//	}
+	@GetMapping("/Jour/{jour}")
+	@JsonView(JsonViews.Evenement.class)
+	public List<Events> getByJour(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate jour) {
+		return evenementService.getByJour(jour);
+	}
 	/////////////////////////////////////////////////
-	
-	
-	@GetMapping("/Bar")
-	@JsonView(JsonViews.Evenement.class)
-	public List<Events> getByBar() {
-		return evenementService.getAll();
-	}
-	
-	@GetMapping("/Employe")
-	@JsonView(JsonViews.Evenement.class)
-	public List<Events> getByEmploye() {
-		return evenementService.getAll();
-	}
 	
 	
 	@ResponseStatus(code = HttpStatus.CREATED)
