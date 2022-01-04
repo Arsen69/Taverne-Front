@@ -39,9 +39,83 @@ line-height: 1;
 #header {
   display:flex;
 }
-#fondbois{
-  background-image: url("images\bois.jpg");
+#banderole {
+  display:flex;
+  width: 200%;
+  height: 10px;
+
+    align-items:center;
+
 }
+#logo {
+  width: 20%;
+  left: -25px;
+  top: -20px;
+  padding: 15px;
+  position: absolute;
+  background-color: none;
+}
+#title {
+  display:flex;
+  width: 100%;
+  height: 200px;
+  /*margin-left: 450px;*/
+  border-radius: 50%;
+  background-image: url("banderole.jpg");
+  justify-content: center;
+  align-items:center;
+  border: solid black 3px;
+}
+#txtTitle {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 75px;
+  line-height: 100%;
+  color: orange;
+  font-family: italic;
+
+}
+footer{
+display:flex;
+background:black;
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:100px;
+}
+#fLeft
+{
+  display:flex;
+  align-items:center;
+  color:orange;
+  margin-left: 300px;
+}
+#fCenter
+{
+  display:flex;
+  align-items:center;
+  color:orange;
+  margin-left: 400px;
+
+}
+#fRight
+{
+  display:flex;
+  align-items:center;
+  color:orange;
+  margin-left: 400px;
+
+}
+#menuLeft
+{
+  width: 20%;
+  height: 1px;
+  background : green;
+  margin-left: 50px;
+}
+
 
 </style>
 
@@ -50,15 +124,28 @@ line-height: 1;
 </head>
 
 
-<body>
 
+  <div id="header">
+
+<!--  <div id="banderole"><img src="images/banderole.jpg" > -->
+<!--  <div id="logo"><img src = "download.jpg" width=100% alt=""></div> -->
+  <div id="title"><span id="txtTitle">La taverne des Elfes</span>
+  </div>
+
+
+  </div>
+
+
+
+
+<body>
 
 <div class="container">
 
 <div class="row mt-5">
 
 <div class="col-md-2 col-8 offset-2 offset-md-1 profile-box border p-1 rounded text-center mr-5 mb-2 bg-light">
-<img src="images\chouffe.jpg" class="w-100 mb-1">
+<img src="images\chouffe1.jpg" class="w-100 mb-1">
 <h5 class="m-0"><strong>Chouffe</strong></h5>
 <p class="mb-2">50cl</p>
 <button class="btn btn-info btn-sm">Ajouter au panier</button>
@@ -88,6 +175,7 @@ line-height: 1;
 </div>
 
 <div class="row mt-5">
+
 <div class="col-md-2 col-8 offset-2 offset-md-1 profile-box border p-1 rounded text-center mr-5 mb-2 bg-light">
 <img src="images\chimay.jpg" class="w-100 mb-1">
 <h5 class="m-0"><strong>Chimay</strong></h5>
@@ -114,9 +202,42 @@ line-height: 1;
 <h5 class="m-0"><strong>Affligem</strong></h5>
 <p class="mb-2">50cl</p>
 <button class="btn btn-info btn-sm">Ajouter au panier</button>
+</div>
 
 </div>
-</div>
+
+<footer>
+  <div id="fLeft">
+    <ul>
+
+      <li>Service client</li>
+      <li>Aide et contacts</li>
+    </ul>
+
+
+  </div>
+
+  <div id="fCenter">
+    <ul>
+
+      <li>google maps</li>
+      <li>évènements à venir</li>
+    </ul>
+  </div>
+
+    <div id="fRight">
+      <ul>
+
+        <li>Inscrivez-vous</li>
+        <li>Promos du moment</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  </footer>
+
 </div>
 
 
