@@ -15,6 +15,10 @@
 
     :root {
     --bckColor: #222327;
+    --bckColor2: #121212;
+    --titleColor: #FF6E00;
+    --txtColor: #ED820E;
+    --scdColor: #00009B;
     }
 
     body {
@@ -56,7 +60,7 @@
 
     header h1 {
       text-align: center;
-      color: silver;
+      color: var(--titleColor);
       flex-direction: column;
     }
 
@@ -98,7 +102,7 @@
       font-size: 1.5em;
       text-align: center;
       transition: 0.5s;
-      color: orange;
+      color: var(--txtColor);
     }
 
     .hRight ul li.active a .icon {
@@ -107,7 +111,7 @@
 
     .hRight ul li a .iconLabel {
       position: absolute;
-      color: orange;
+      color: var(--txtColor);
       font-weight: 450;
       font-size: 0.95em;
       letter-spacing: 0.05em;
@@ -127,7 +131,7 @@
       position: absolute;
       width: 75px;
       height: 75px;
-      background: darkblue;
+      background: var(--scdColor);
       bottom: -50%;
       border-radius: 50%;
       border: 6px solid var(--bckColor);
@@ -176,10 +180,39 @@
 
     .rezo {
       display: flex;
-      color: orange;
+      color: var(--txtColor);
       font-size: 1.5em;
       justify-content: space-around;
       align-items: center;
+    }
+
+    .rezoLogo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bckColor2);
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+
+    .rezoLogo::before {
+      position: absolute;
+      background-color: var(--scdColor);
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      transform: scale(0.9);
+      transition: 0.5s;
+      z-index: -1;
+    }
+
+    .rezoLogo:hover::before {
+      transform: scale(1.25);
     }
 
     .titleRezo {
@@ -240,16 +273,16 @@
         </div>
         <div class="rezo col-lg-8">
           <a href="#">
-            <span><ion-icon name="logo-facebook"></ion-icon></span>
+            <span class="rezoLogo"><ion-icon name="logo-facebook"></ion-icon></span>
           </a>
           <a href="#">
-            <span><ion-icon name="logo-twitter"></ion-icon></span>
+            <span class="rezoLogo"><ion-icon name="logo-twitter"></ion-icon></span>
           </a>
           <a href="#">
-            <span><ion-icon name="logo-instagram"></ion-icon></span>
+            <span class="rezoLogo"><ion-icon name="logo-instagram"></ion-icon></span>
           </a>
           <a href="#">
-            <span><ion-icon name="logo-youtube"></ion-icon></span>
+            <span class="rezoLogo"><ion-icon name="logo-youtube"></ion-icon></span>
           </a>
         </div>
       </div>
@@ -257,19 +290,19 @@
         <div class="col-12 col-lg-6 titleRezo">
           <div class="rezo col-4 d-lg-none">
             <a href="#">
-              <span><ion-icon name="logo-facebook"></ion-icon></span>
+              <span class="rezoLogo"><ion-icon name="logo-facebook"></ion-icon></span>
             </a>
             <a href="#">
-              <span><ion-icon name="logo-twitter"></ion-icon></span>
+              <span class="rezoLogo"><ion-icon name="logo-twitter"></ion-icon></span>
             </a>
           </div>
           <h1 class="">La Taverne</h1>
           <div class="rezo col-4 d-lg-none">
             <a href="#">
-              <span><ion-icon name="logo-instagram"></ion-icon></span>
+              <span class="rezoLogo"><ion-icon name="logo-instagram"></ion-icon></span>
             </a>
             <a href="#">
-              <span><ion-icon name="logo-youtube"></ion-icon></span>
+              <span class="rezoLogo"><ion-icon name="logo-youtube"></ion-icon></span>
             </a>
           </div>
         </div>
